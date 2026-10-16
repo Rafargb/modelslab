@@ -1312,219 +1312,99 @@
 </span>
 </span>
 </div>
+<style>
+.mc-plans-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.15fr;gap:24px;align-items:stretch}
+.mc-card{position:relative;display:flex;flex-direction:column;height:100%;border-radius:16px;border:2px solid hsl(0,0%,15%);background:hsl(0,0%,6%);text-decoration:none;color:#fff;transition:transform .2s ease}
+.mc-card:hover{transform:translateY(-3px)}
+.mc-header{padding:18px 24px;text-align:center;border-radius:14px 14px 0 0;background:hsl(0,0%,18%)}
+.mc-header h3{font-size:clamp(1.15rem,2.5vw,1.5rem);font-weight:900;letter-spacing:.04em;color:#bbb;text-transform:uppercase}
+.mc-items{flex:1;padding:24px;display:flex;flex-direction:column;gap:16px}
+.mc-item{display:flex;align-items:center;gap:12px}
+.mc-check{width:24px;height:24px;border-radius:4px;background:#16a34a;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.mc-check svg{width:16px;height:16px;color:#fff}
+.mc-item p{font-weight:700;font-size:.875rem;color:#fff;line-height:1.35}
+.mc-cta{padding:0 24px 32px;text-align:center}
+.mc-price{font-size:3rem;font-weight:900;line-height:1.1;color:var(--lv2-accent)}
+.mc-btn{display:block;width:100%;margin-top:12px;border-radius:999px;padding:16px 24px;font-weight:800;font-size:1rem;color:#fff;background:var(--lv2-accent);transition:background .2s ease}
+.mc-card:hover .mc-btn{background:var(--lv2-accent-hover)}
+/* Basic */
+.mc-card.basic{opacity:.9}
+.mc-card.basic .mc-item p{color:#999}
+.mc-card.basic .mc-item.off p{color:#666;text-decoration:line-through}
+.mc-card.basic .mc-item.off .mc-check{background:#3a0a0a}
+.mc-card.basic .mc-item.off .mc-check svg{color:hsl(0,84%,60%)}
+.mc-card.basic .mc-price{color:#bbb;font-size:2.25rem}
+.mc-card.basic .mc-btn{background:hsl(0,0%,22%)}
+.mc-card.basic:hover .mc-btn{background:hsl(0,0%,30%)}
+/* Featured */
+.mc-card.featured{border:2px solid var(--lv2-accent);box-shadow:0 25px 60px color-mix(in srgb,var(--lv2-accent) 25%,transparent)}
+.mc-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#FFB800;color:#000;padding:6px 18px;border-radius:999px;font-size:.75rem;font-weight:900;letter-spacing:.05em;text-transform:uppercase;z-index:2;white-space:nowrap}
+.mc-banner{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;object-position:center 25%;border-radius:14px 14px 0 0}
+@media(max-width:768px){
+  .mc-plans-grid{grid-template-columns:1fr;gap:48px}
+  .mc-card.featured{order:-1;margin-top:16px}
+  .mc-card.basic{order:1}
+  .mc-badge{font-size:.7rem;padding:5px 14px}
+  .mc-card.basic .mc-price{font-size:2rem}
+}
+</style>
 <section class="relative overflow-hidden py-20 px-4">
 <div class="pointer-events-none absolute inset-0 opacity-60" style="background:radial-gradient(circle at 30% 40%, color-mix(in srgb, var(--lv2-accent) 8%, transparent) 0%, transparent 45%), radial-gradient(circle at 70% 60%, color-mix(in srgb, var(--lv2-accent) 6%, transparent) 0%, transparent 40%)">
 </div>
 <div class="relative mx-auto max-w-5xl">
-<div class="flex flex-col items-center text-center mb-8">
+<div class="flex flex-col items-center text-center mb-12">
 <span class="inline-block rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-xs font-medium tracking-wide text-slate-400">OFERTA ESPECIAL DE LANÇAMENTO</span><div id="precos"></div>
-<h2 class="mt-6 max-w-3xl text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">Desbloqueie o Pack Completo por Menos do que <span class="text-[var(--lv2-accent)]">um Almoço</span></h2>
-<p class="mt-6 inline-flex items-center gap-3 rounded-full border border-[color-mix(in_srgb,var(--lv2-accent)_25%,transparent)] bg-[color-mix(in_srgb,var(--lv2-accent)_8%,transparent)] px-6 py-2.5 text-lg font-medium text-[var(--lv2-accent-light)] sm:text-xl md:text-2xl">🔥 72% OFF — Oferta por tempo limitado</p>
+<h2 class="mt-6 max-w-3xl text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">Escolha seu plano e comece a <span class="text-[var(--lv2-accent)]">faturar</span> ainda hoje</h2>
+<p class="mt-6 inline-flex items-center gap-3 rounded-full border border-[color-mix(in_srgb,var(--lv2-accent)_25%,transparent)] bg-[color-mix(in_srgb,var(--lv2-accent)_8%,transparent)] px-6 py-2.5 text-lg font-medium text-[var(--lv2-accent-light)] sm:text-xl">🔥 72% OFF — Oferta por tempo limitado</p>
 </div>
-<div class="grid gap-8 lg:grid-cols-[1fr_380px]">
-<div class="space-y-6">
-<div class="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 sm:p-8">
-<h3 class="text-lg font-bold text-white sm:text-xl">Ao garantir o Pack Completo hoje, você recebe:</h3>
-<div class="mt-6 space-y-4">
-<div class="flex items-center justify-between gap-4">
-<div class="flex items-center gap-3">
-<svg class="h-5 w-5 shrink-0 text-[var(--lv2-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5">
-</path>
-</svg>
-<span class="text-sm text-slate-300 sm:text-base">Biblioteca com 300+ Prompts +18 Validados</span>
+
+<div class="mc-plans-grid">
+
+<!-- PLANO BÁSICO -->
+<a href="#precos" class="mc-card basic">
+<div class="mc-header"><h3>Plano Básico</h3></div>
+<div class="mc-items">
+<div class="mc-item"><div class="mc-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div><p>Pack de 300 Prompts +18 para sua modelo de IA</p></div>
+<div class="mc-item off"><div class="mc-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M18 6L6 18M6 6l12 12"/></svg></div><p>Tutorial passo a passo da IA SEM CENSURA</p></div>
+<div class="mc-item off"><div class="mc-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M18 6L6 18M6 6l12 12"/></svg></div><p>Dicionário do Prompter — 80 prompts +18 indetectáveis</p></div>
+<div class="mc-item off"><div class="mc-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M18 6L6 18M6 6l12 12"/></svg></div><p>Acesso à IA SEM CENSURA 🔥</p></div>
+<div class="mc-item off"><div class="mc-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M18 6L6 18M6 6l12 12"/></svg></div><p>PromptGPT — A IA que cria prompts +18 para você</p></div>
+<div class="mc-item off"><div class="mc-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M18 6L6 18M6 6l12 12"/></svg></div><p>Playbook Fanvue &amp; OnlyFans — do zero aos primeiros $1.000</p></div>
+<div class="mc-item off"><div class="mc-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M18 6L6 18M6 6l12 12"/></svg></div><p>Licença comercial para vender no Fanvue/OnlyFans + atualizações vitalícias</p></div>
+<div class="mc-item off"><div class="mc-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M18 6L6 18M6 6l12 12"/></svg></div><p>Garantia incondicional de 7 dias</p></div>
+<div class="mc-item off"><div class="mc-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M18 6L6 18M6 6l12 12"/></svg></div><p>Suporte prioritário no WhatsApp (técnico + plataformas)</p></div>
 </div>
-<span class="shrink-0 text-sm font-medium text-slate-500 line-through">US$<!-- -->197</span>
+<div class="mc-cta">
+<p class="mc-price">$6.99 USD</p>
+<span class="mc-btn">COMPRAR PLANO BÁSICO</span>
 </div>
-<div class="flex items-center justify-between gap-4">
-<div class="flex items-center gap-3">
-<svg class="h-5 w-5 shrink-0 text-[var(--lv2-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5">
-</path>
-</svg>
-<span class="text-sm text-slate-300 sm:text-base">Acesso e Guia da IA Sem Censura</span>
+</a>
+
+<!-- PLANO COMPLETO -->
+<a href="#precos" class="mc-card featured">
+<div class="mc-badge">⭐ MAIS POPULAR</div>
+<img class="mc-banner" src="library-assets/1.jpeg" alt="Pack 300+ Prompts +18 para Modelo de IA com IA SEM CENSURA" loading="eager">
+<div class="mc-items">
+<div class="mc-item"><div class="mc-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div><p>300+ prompts +18 validados e organizados por categoria</p></div>
+<div class="mc-item"><div class="mc-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div><p>Categorias: lingerie, banho, POV, academia, fetiches leves, packs PPV</p></div>
+<div class="mc-item"><div class="mc-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div><p>Otimizado para a IA SEM CENSURA</p></div>
+<div class="mc-item"><div class="mc-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div><p>Bônus: Tutorial passo a passo da IA SEM CENSURA</p></div>
+<div class="mc-item"><div class="mc-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div><p>Bônus: Dicionário do Prompter — 80 prompts +18 indetectáveis</p></div>
+<div class="mc-item"><div class="mc-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div><p>Bônus: PromptGPT — A IA que cria prompts +18 para você</p></div>
+<div class="mc-item"><div class="mc-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div><p>Bônus: Playbook Fanvue &amp; OnlyFans — do zero aos primeiros $1.000</p></div>
+<div class="mc-item"><div class="mc-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div><p><strong>Acesso à IA SEM CENSURA</strong> 🔥</p></div>
+<div class="mc-item"><div class="mc-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div><p>Licença comercial para Fanvue/OnlyFans + atualizações vitalícias</p></div>
+<div class="mc-item"><div class="mc-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div><p>Garantia incondicional de 7 dias</p></div>
 </div>
-<span class="shrink-0 text-sm font-medium text-slate-500 line-through">US$<!-- -->67</span>
+<div class="mc-cta">
+<p style="color:hsl(0,84%,60%);text-decoration:line-through;font-weight:700;margin-bottom:4px">de $39 USD</p>
+<p class="mc-price">$12.99 USD</p>
+<p style="color:#999;font-size:.8rem;margin-bottom:4px">pagamento único — menos que um café</p>
+<span class="mc-btn">QUERO A MODELO +18 COMPLETA</span>
+<p style="color:#666;font-size:.7rem;margin-top:12px">Acesso imediato após a confirmação do pagamento</p>
 </div>
-<div class="flex items-center justify-between gap-4">
-<div class="flex items-center gap-3">
-<svg class="h-5 w-5 shrink-0 text-[var(--lv2-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5">
-</path>
-</svg>
-<span class="text-sm text-slate-300 sm:text-base">Prompts de Vídeo Cinematográfico com Movimento Real</span>
-</div>
-<span class="shrink-0 text-sm font-medium text-slate-500 line-through">US$<!-- -->67</span>
-</div>
-<div class="flex items-center justify-between gap-4">
-<div class="flex items-center gap-3">
-<svg class="h-5 w-5 shrink-0 text-[var(--lv2-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5">
-</path>
-</svg>
-<span class="text-sm text-slate-300 sm:text-base">Prompts de Consistência Facial e Corporal 98%</span>
-</div>
-<span class="shrink-0 text-sm font-medium text-slate-500 line-through">US$<!-- -->37</span>
-</div>
-<div class="flex items-center justify-between gap-4">
-<div class="flex items-center gap-3">
-<svg class="h-5 w-5 shrink-0 text-[var(--lv2-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5">
-</path>
-</svg>
-<span class="text-sm text-slate-300 sm:text-base">Categorias: Lingerie, Banho, POV, Academia e PPV</span>
-</div>
-<span class="shrink-0 text-sm font-medium text-slate-500 line-through">US$<!-- -->47</span>
-</div>
-<div class="flex items-center justify-between gap-4">
-<div class="flex items-center gap-3">
-<svg class="h-5 w-5 shrink-0 text-[var(--lv2-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5">
-</path>
-</svg>
-<span class="text-sm text-slate-300 sm:text-base">Licença Comercial Completa (Fanvue, OnlyFans, Privacy)</span>
-</div>
-<span class="shrink-0 text-sm font-medium text-slate-500 line-through">US$<!-- -->47</span>
-</div>
-<div class="flex items-center justify-between gap-4">
-<div class="flex items-center gap-3">
-<svg class="h-5 w-5 shrink-0 text-[var(--lv2-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5">
-</path>
-</svg>
-<span class="text-sm text-slate-300 sm:text-base">BÔNUS 1: O Dicionário Secreto do Prompter (80 Prompts)</span>
-</div>
-<span class="shrink-0 text-sm font-medium text-slate-500 line-through">US$<!-- -->57</span>
-</div>
-<div class="flex items-center justify-between gap-4">
-<div class="flex items-center gap-3">
-<svg class="h-5 w-5 shrink-0 text-[var(--lv2-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5">
-</path>
-</svg>
-<span class="text-sm text-slate-300 sm:text-base">BÔNUS 2: PromptGPT (A IA que Cria Prompts para Você)</span>
-</div>
-<span class="shrink-0 text-sm font-medium text-slate-500 line-through">US$<!-- -->37</span>
-</div>
-<div class="flex items-center justify-between gap-4">
-<div class="flex items-center gap-3">
-<svg class="h-5 w-5 shrink-0 text-[var(--lv2-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5">
-</path>
-</svg>
-<span class="text-sm text-slate-300 sm:text-base">BÔNUS 3: Tutorial em Vídeo da IA Sem Censura</span>
-</div>
-<span class="shrink-0 text-sm font-medium text-slate-500 line-through">US$<!-- -->27</span>
-</div>
-<div class="flex items-center justify-between gap-4">
-<div class="flex items-center gap-3">
-<svg class="h-5 w-5 shrink-0 text-[var(--lv2-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5">
-</path>
-</svg>
-<span class="text-sm text-slate-300 sm:text-base">BÔNUS 4: Playbook Fanvue &amp; OnlyFans (Do Zero aos $1.000)</span>
-</div>
-<span class="shrink-0 text-sm font-medium text-slate-500 line-through">US$<!-- -->27</span>
-</div>
-</div>
-</div>
-<div class="rounded-2xl border border-[var(--lv2-accent)]/20 bg-[var(--lv2-accent)]/[0.03] p-6 sm:p-8">
-<h3 class="text-lg font-bold text-white sm:text-xl">
-<span class="text-[var(--lv2-accent)]">+</span> Bônus Exclusivos</h3>
-<div class="mt-6 space-y-4">
-<div class="flex items-center justify-between gap-4">
-<div class="flex items-center gap-3">
-<svg class="h-5 w-5 shrink-0 text-[var(--lv2-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5">
-</path>
-</svg>
-<span class="text-sm text-slate-300 sm:text-base">Sorteio de Chamada Privada 1 a 1</span>
-</div>
-<span class="shrink-0 text-sm font-medium text-slate-500 line-through">US$<!-- -->300</span>
-</div>
-<div class="flex items-center justify-between gap-4">
-<div class="flex items-center gap-3">
-<svg class="h-5 w-5 shrink-0 text-[var(--lv2-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5">
-</path>
-</svg>
-<span class="text-sm text-slate-300 sm:text-base">Ganchos Virais Prontos para Usar</span>
-</div>
-<span class="shrink-0 text-sm font-medium text-slate-500 line-through">US$<!-- -->27</span>
-</div>
-<div class="flex items-center justify-between gap-4">
-<div class="flex items-center gap-3">
-<svg class="h-5 w-5 shrink-0 text-[var(--lv2-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5">
-</path>
-</svg>
-<span class="text-sm text-slate-300 sm:text-base">Galeria de Referências de Modelos Campeãs</span>
-</div>
-<span class="shrink-0 text-sm font-medium text-slate-500 line-through">US$<!-- -->27</span>
-</div>
-</div>
-</div>
-</div>
-<div class="lg:sticky lg:top-8 self-start">
-<div class="rounded-2xl border border-white/[0.08] bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01))] p-6 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.4)]">
-<div class="mb-6">
-<p class="mb-3 text-center text-xs font-semibold uppercase tracking-widest text-slate-400">ESTA OFERTA PROMOCIONAL ENCERRA EM BREVE</p>
-<div class="flex items-center justify-center gap-2">
-<span class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] text-lg font-bold tabular-nums text-white sm:h-12 sm:w-12 sm:text-xl">--</span>
-<span class="text-slate-500 font-bold">:</span>
-<span class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] text-lg font-bold tabular-nums text-white sm:h-12 sm:w-12 sm:text-xl">--</span>
-<span class="text-slate-500 font-bold">:</span>
-<span class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] text-lg font-bold tabular-nums text-white sm:h-12 sm:w-12 sm:text-xl">--</span>
-</div>
-</div>
-<div class="h-px w-full bg-white/[0.06]">
-</div>
-<div class="my-6 flex items-center justify-center gap-2">
-<span class="text-2xl font-black tracking-tight text-white"><span class="text-[var(--lv2-accent)]">MODELS</span> CASH</span>
-</div>
-<div class="mb-4 flex justify-center">
-<span class="inline-flex items-center gap-1.5 rounded-full bg-[var(--lv2-accent)]/10 border border-[var(--lv2-accent)]/20 px-4 py-1.5 text-xs font-bold text-[var(--lv2-accent)]">
-<span>🔥</span> 72% OFF — SOMENTE HOJE</span>
-</div>
-<div class="text-center">
-<p class="text-sm text-slate-400">Preço original <span class="font-semibold text-slate-400 line-through">US$97</span> | Agora apenas</p>
-<div class="mt-2 flex items-baseline justify-center gap-1">
-<span class="text-lg text-slate-400">US$</span>
-<span class="text-6xl font-extrabold tracking-tight text-white">12.99</span>
-</div>
-<span class="mt-2 inline-block rounded-md border border-white/10 bg-white/[0.04] px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-slate-400">Acesso vitalício</span>
-</div>
-<div class="my-6 h-px w-full bg-white/[0.06]">
-</div>
-<div class="mb-6 space-y-3 text-center text-sm leading-relaxed text-slate-400">
-<p>Menos de<!-- --> <span class="font-bold text-white">R$ 0,40 por dia</span> <!-- -->por um acervo completo que permite faturar de<!-- --> <span class="font-bold text-white">$200 a $800 dólares por dia</span>.</p>
-<p>Acesso imediato no seu e-mail após a confirmação do pagamento, com direito a todas as atualizações futuras.</p>
-</div>
-<div class="mb-6 flex items-center justify-center gap-3">
-<div class="flex -space-x-2">
-<div class="flex h-8 w-8 items-center justify-center rounded-full border-2 border-[#080808] text-[10px] font-bold bg-gradient-to-br from-pink-400 to-rose-600">S</div>
-<div class="flex h-8 w-8 items-center justify-center rounded-full border-2 border-[#080808] text-[10px] font-bold bg-gradient-to-br from-violet-400 to-indigo-600">M</div>
-<div class="flex h-8 w-8 items-center justify-center rounded-full border-2 border-[#080808] text-[10px] font-bold bg-gradient-to-br from-amber-400 to-orange-600">P</div>
-</div>
-<span class="text-sm text-slate-400">
-<span class="font-semibold text-white">+200</span> alunos</span>
-</div>
-<button type="button" class="w-full rounded-full bg-[var(--lv2-accent)] px-6 py-4 text-base font-bold text-white transition hover:bg-[var(--lv2-accent-hover)] sm:text-lg" aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-_R_lubsivb_" data-state="closed" data-slot="dialog-trigger">DESBLOQUEAR MEUS 300+ PROMPTS AGORA →</button>
-<div class="mt-5 flex items-center justify-center gap-5 text-[11px] text-slate-500">
-<span class="flex items-center gap-1.5">
-<svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-<path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z">
-</path>
-</svg>Pagamento Seguro</span>
-<span class="flex items-center gap-1.5">Garantia de 7 Dias</span>
-<span class="flex items-center gap-1.5">
-<svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-<path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88">
-</path>
-</svg>Privacidade Total</span>
-</div>
-</div>
-</div>
+</a>
+
 </div>
 </div>
 </section>
